@@ -1,5 +1,5 @@
 function calculate() {
-    const firstNumber = Number(document.getElementById("num1").value);
+    const firstNumber = Nubmer(document.getElementById("num1").value);
     const secondNumber = Number(document.getElementById("num2").value);
     const thirdNumber = Number(document.getElementById("num2").value);
     const operator = document.getElementById("operator").value;
