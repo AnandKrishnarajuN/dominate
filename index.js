@@ -182,7 +182,14 @@ function promiseFunc() {
         .catch(function (error) { // failure callback
             document.getElementById("async").textContent = error;
         });
+}
 
+// async : function declared with async => ALWAYS returns a promise
+// await : Pauses the function execution until the promise is resolved
+
+async function asyncFunc() {
+    const result = await isEven(20);
+    console.log("Async Result:", result);
 }
 
 function isEven(num) {
