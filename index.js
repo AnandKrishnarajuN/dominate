@@ -141,8 +141,53 @@ function day5() {
 
 }
 
+function asynchronous() {
+    console.log("Anand1");
+    console.log("Anand2");
+    setTimeout(() => {
+        console.log("Anand3");
+    }, 15000);
 
+    //1. Calls a Stack: Keeps tracks of the function calls
+    //2. When called a function, it goes to the stack asynchronous() == put in the stack
+    //3. When the function is completed, it is removed from the stack == pop from the stack
 
+    console.log("Anand4");
+    console.log("Anand5");
+}
+
+//Promise = Object that represents the result of an asynchronous operation.
+//State: 1. Pending// in progress, 2. Resolved - Success, 3. Rejected - failure
+
+function promiseFunc() {
+    document.getElementById("async").textContent = "Static Data Loaded Successfully. Backend Process Loading...";
+
+    //Simulate ASYNC operation
+    let promise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            const success = isEven(21); // Simulate success or failure
+            const api = "https://akin.isEven.com/data?num=21";
+            if (success) {
+                resolve("Backend Data loaded successfully!");
+            } else {
+                reject("Backend Failed to load data.");
+            }
+        }, 3000);
+    })
+
+    promise
+        .then(function (result) { // success callback
+            document.getElementById("async").textContent = result;
+        })
+        .catch(function (error) { // failure callback
+            document.getElementById("async").textContent = error;
+        });
+
+}
+
+function isEven(num) {
+    return num % 2 === 0;
+}
 
 // ECMAScript 6 - Standard that defines how JAVASCRIPT should Worker.
 
